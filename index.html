@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>IMDB Network and Text Analysis</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
+
+    <!-- Custom styles for this template -->
+    <link href="css/new-age.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#INTRO">INTRO</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#NETWORK-ANALYSIS">NETWORK ANALYSIS</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#SENTIMENT-ANALYSIS">SENTIMENT ANALYSIS</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#TEXT-ANALYSIS">TEXT ANALYSIS</a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#DOWNLOAD-STUDY">DOWNLOAD STUDY</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+              <h1 class="mb-5">IMDb Network and Text Analysis</h1> 
+			  <h4 class="mb-5">-By Zeshan Khan s133971 & Ahmed Saed Mehdi Alhakak s133969</h4>
+            </div>
+          </div>
+          <div class="col-lg-5 my-auto">
+            <div class="device-container">
+
+                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                    <img src="img/IMDB.png" class="img-fluid" alt="">
+                  </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="contact bg-primary" id="INTRO">
+      <div class="container">
+       <h2>Introduction</h2>
+	   <p class="text-muted" color = 'white'>This project is uncovering data from one of the world’s biggest online movie databases, launched back in 1990.  This movie database contains more than 3,9 milion movie/tv-series titles and 7,5 million personalities. We will throughout this paper try to uncover some patterns, tendencies and relationships between different variables in the movie landscape. Some of these variables are budget, revenue, duration of the movies, genres, year, etc. Although IMDb has millions and millions of titles for us to progress, we don’t have the resources and time to go through all that data. We have also gathered moviescripts for text analysis, to create and look at patterns. 
+Some of the questions we want to uncover are, how duration affects the movies success and gross? Which kinds of movies has the biggest gross? Is there a connection between gross and budget? Is there a connection between the amount and type of feelling and the success of a movie? etc.  </p>
+      </div>
+    </section>
+
+    <section class="features" id="NETWORK-ANALYSIS">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>Network analysis</h2>
+			<p class="text-muted">The Movie network below is created to see if centrality is based on rating. The top 5 nodes with the highest centrality in the network show that this is not the case. High centrality is not based on rating but instead, tell that the movie 'The Dark Knight Rises' have a lot of actors who are also in many other films. So this tells us that the film on the top 5 list is either has some very famous/very productive actors</p>
+		   <img src="img/1.png" class="img-fluid" alt="">
+           <p class="text-muted">The way network is constructed is, where the movies are the nodes and the connection is the actors, so if 3 of the same actors appears in two different movie, then there is a connection between these two movies.  </p>
+		   
+		
+			<img src="img/4.png" class="img-fluid" alt="" style="width: 75%;">
+		   	<p class="text-muted">We only take the movies in the middle of the cluster, to get a better overview. So we get rid of every movie that has no connection to other movies.</p>
+		   
+		   <center>
+		   		   <p class="text-muted">The betweenness centrality of the top 5 nodes, tells us about how many times a node acts as a bridge between other nodes, as the shortest path cross to nodes. The idea was to see if a node with high centrality has something to do with the rating the movie got. 
+
+The eigenvector centrality shows a nodes influence within a network, this list would probably show one or more of the same movies as the betweenness centrality.</p>
+		   <table style="width: 50%;">
+			<tr>
+				<th>Movie</th>
+				<th>Betweenness Centrality</th>
+			</tr>
+			<tr>
+				<td>The Dark Knight Rises</td>
+				<td>0.10054201121</td>
+			</tr>
+			<tr>
+				<td>The Fighter</td>
+				<td>0.0455517310483</td>
+			</tr>
+			<tr>
+				<td>Maleficent</td>
+				<td>0.0402527902084</td>
+			</tr>
+			<tr>
+				<td>You Don't Mess with the Zohan</td>
+				<td>0.0381964305564</td>
+			</tr>
+			<tr>
+				<td>The Departed</td>
+				<td>0.0325438477142</td>
+			</tr>
+
+			</table>
+			</center>
+			
+			<center>
+		   		   <p class="text-muted"></p>
+		   <table style="width: 50%;">
+			<tr>
+				<th>Movie</th>
+				<th>Eigenvector Centrality</th>
+			</tr>
+			<tr>
+				<td>Grown Ups 2</td>
+				<td>0.27735964737</td>
+			</tr>
+			<tr>
+				<td>You Don't Mess with the Zohan</td>
+				<td>0.267864857114</td>
+			</tr>
+			<tr>
+				<td>Bedtime Stories</td>
+				<td>0.256616483492</td>
+			</tr>
+			<tr>
+				<td>The Ridiculous 6</td>
+				<td>0.25587153537</td>
+			</tr>
+			<tr>
+				<td>Pixels</td>
+				<td>0.249395787647</td>
+			</tr>
+			</table>
+			</center>
+				<p class="text-muted">The movies in these have famous actors or just a substantial number of actors that result in their centrality of the network. As can be seen from this list a movie's rating has nothing to do with the centrality or how important a node is in the network.</p>
+
+	   
+		   		   <p class="text-muted">This network below is created to see if actors tend only to do movies in the same genre. The connection is based on if an actor has done a movie with other actors.</p>
+		   <img src="img/b.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   		   		   <p class="text-muted">The communities in this network were identified with the use of Louvain community detection algorithm which finds communities in a graph/network, communities being actors who are closely connected with each other. This algorithm found 16 communities in our network. The idea was to see if there is a tendency for actors only to make movies within a specific genre.</p>
+		   <img src="img/a.png" class="img-fluid" alt="" style="width: 75%;">
+
+		   <img src="img/actor_genre.png" class="img-fluid" alt="" style="width: 75%;">
+				    <p class="text-muted">From the communities in the network, it shows us that this could be the case as a lot of communities only do the same genre movies and if they too other genres this is just a tiny portion.</p>
+
+		   <img src="img/6.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   		   <p class="text-muted">This graph shows that there are a connection between the revenue and the budget. Most of the movies have a budget between 0 and 80 million and revenue at almost a maximum of 500 million. Some of the movies are differentiating as example a movie with a budget of 8 million and revenue 800, which is 10 times the budget. So the highest revenue at this graph is max 10 times the budget.</p>
+		   <img src="img/7.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   		   <p class="text-muted">This graph shows the connection between the average vote and the budget. The movies have a vote average between 3 and 8. We can conclude that movies with a budget between 0 and 50 million have a vote average of 4 and 8. There is a tendencies that movies with a high budget have higher votes. </p>
+		   <img src="img/8.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   		   <p class="text-muted">Here, the graph illustrates the vote average and the revenue in millions. Movies with higher votes get a high revenue. When movies has a revenue at minimum 500 million, they will get at least a vote average of 5. The movies with the highest revenue (2700 million) has a vote average of 7. </p>
+		   <img src="img/9.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   		   <p class="text-muted">This graph shows vote average and the duration of movies in minutes. We can conclude that most movies with a duration over 150 minutes has higher vote average, whereas some movies with a duration less than 150 minutes has a vote average of 4 and less. Mos movies has a duration around 100 minutes, where the vore averages are spread almost equally in that duration. As said before the spread towards a high vote average happens when movies reaches 150 minutes. </p>
+		   <img src="img/10.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   		   <p class="text-muted">This graph shows duration in minutes and revenue in million ($) for the movies. Most of the movies has a revenue between 0 and 400 millions $ and the duration is between 80 and 150 minutes. </p>
+		   <img src="img/11.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   		   <p class="text-muted">This graph shows the average revenue for movies in months. We can conclude that movies in May and June has the highest revenue, which can have something to do with spring break and that most movies are released at this time, in order to do something with the family in freetime. The revenue is also high at the late months, in November and December, which can have something to do with the special genre of the season, where a lot of christmas movies are released. </p>
+		   <img src="img/12.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   		   <p class="text-muted">This graph shows revenue in average for different movie genres. The graph illustrates that animation movies and horror movies has the highest revenue of 650%. The movies with the lowest revenue average is action movies, with an average revenue of 250% of the budget. Action movies are also more expensive to produce in comparison to example horror movies.</p>
+		   <img src="img/13.png" class="img-fluid" alt="" style="width: 75%;">
+
+			<p class="text-muted"> 
+			The graph shows an overview of how many movies make it to the top IMDB top 250 movies list. The last decade 3-7 movies have made it to the top so if there is already seven movies that made it to the top wait until the next year for best chances to make it to this list.
+			</p>
+		   
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="contact bg-primary" id="SENTIMENT-ANALYSIS">
+      <div class="container">
+      <h2>Sentiment Analysis</h2>
+
+	            		 <p class="text-muted">The idea is to calculate the sentiment values of some top movies and some bottom movies. We want to see if a movie's rating is based on the sentiment of the manuscript. There will also be calculate the sentiment value of movies released over the years, and this will show if older movies have a better sentiment value then movies released these days.</p>
+		   
+		   <img src="img/14.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   	            <p class="text-muted">This graph illustrates the top 5 movies from left to right, whereas the bottom 5 with the least scores can be seen from right to left. The bottom 5 movies has more sentiment compared to the top 5, which can be concluded as if, much sentiment doesn’t have any influence on movies success. </p>
+		   
+		   <img src="img/15.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+		   
+		   		   <center>
+		   		   <p class="text-muted">This graph gives an overview of the sentiments of movies from 1920 to 2020. We can conclude that the sentiment peaks in the periode around 2010. The sentiments has been very average through most years, between 5,4 and 5,5.  </p>
+		   
+		   <center>Top 5 movies with best sentiment</center>
+		   <table style="width: 50%;">
+			<tr>
+				<th>Movie</th>
+				<th>Sentiment (Average)</th>
+				<th>Year</th>
+			</tr>
+			<tr>
+				<td>Singin' in the Rain</td>
+				<td>5.7</td>
+				<td>1952</td>
+			</tr>
+			<tr>
+				<td>WALL E</td>
+				<td>5.7</td>
+				<td>2008</td>
+			</tr>
+			<tr>
+				<td>Hachi: A Dog's Tale</td>
+				<td>5.7</td>
+				<td>2009</td>
+			</tr>
+			<tr>
+				<td>Singin' in the Rain</td>
+				<td>6.0</td>
+				<td>2010</td>
+			</tr>
+			<tr>
+				<td>Mad Max: Fury Road</td>
+				<td>7.0</td>
+				<td>2015</td>
+			</tr>
+
+			</table>
+			</center>
+			
+			<center>
+		   		   <p class="text-muted">As seen above, there is a list with the top 5 most movies with best sentiment, where the first in the row is Mad Max with a score at 7.0. In second place is Singin’ in the rain with 6.0 in score. </p>
+		   
+		   <center>Top 5 movies with lowest sentiment</center>
+		   <table style="width: 50%;">
+			<tr>
+				<th>Movie</th>
+				<th>Sentiment (Average)</th>
+				<th>Year</th>
+			</tr>
+			<tr>
+				<td>Rashomon</td>
+				<td>5.2</td>
+				<td>1950</td>
+			</tr>
+			<tr>
+				<td>The Thing</td>
+				<td>5.2</td>
+				<td>1982</td>
+			</tr>
+			<tr>
+				<td>Platoon</td>
+				<td>5.3</td>
+				<td>1986</td>
+			</tr>
+			<tr>
+				<td>A Separation</td>
+				<td>5.3</td>
+				<td>2011</td>
+			</tr>
+			<tr>
+				<td>Amadeus</td>
+				<td>5.3</td>
+				<td>1984</td>
+			</tr>
+
+			</table>
+			</center>
+		   <p class="text-muted">Here is a list with the buttom 5 movies with worst sentiment, where the first in the row is Rashomon with a score at 5.2.</p
+      </div>
+    </section>
+	
+	    <section class="features" id="TEXT-ANALYSIS">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>Text analysis of Subtitles</h2>
+          		   		   <p class="text-muted">These text analysis tells us, which words that are the most common in specific genres. An example is in drama movies, where words like “thank”, “say”, “room” and “hold” are the most common. Another example is in action movies, where words like “number”, “team”, “one”, “look time” are common. 
+</p>
+		   
+		   <img src="img/s1.png" class="img-fluid" alt="" style="width: 75%;">
+		   <img src="img/s2.png" class="img-fluid" alt="" style="width: 75%;">
+		   <img src="img/s3.png" class="img-fluid" alt="" style="width: 75%;">
+		   <img src="img/s4.png" class="img-fluid" alt="" style="width: 75%;">
+		   
+                  		  <p class="text-muted">The overview of the movie is very common in every movie genre. The words found here find, one, life, world, year and family which are all positive words.</p>
+		  
+		   <img src="img/o1.png" class="img-fluid" alt="" style="width: 75%;">
+		   <img src="img/o2.png" class="img-fluid" alt="" style="width: 75%;">
+		   <img src="img/o3.png" class="img-fluid" alt="" style="width: 75%;">
+		   <img src="img/o4.png" class="img-fluid" alt="" style="width: 75%;">
+		
+        </div>
+      </div>
+    </section>
+
+	
+    <section class="contact bg-primary" id="DOWNLOAD-STUDY">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>Study</h2>
+
+		<p class="text-muted">The dataset we used can be found here: </p>
+
+		<p class="text-muted">There is a lot of python library that is needed if you intend to work with our notebook. These are subliminal, Babelfish and pysrt.	</p>
+		
+		<p class="text-muted"> our Explainer Notebook can be found here: </p>
+        </div>
+      </div>
+    </section>
+
+
+    <footer>
+      <div class="container">
+        
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/new-age.min.js"></script>
+
+  </body>
+
+</html>
